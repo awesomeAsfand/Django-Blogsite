@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ post_detail.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ post_detail.author }} | {{ post_detail.created_on }}</p>
+        <p class="card-text ">{{ post_detail.content | safe }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+
+        {% include 'blog/comments.html'%}
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        {{post_comments}}
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>
+{% endblock %}
+
