@@ -10,11 +10,12 @@
     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
       <div class="card-body p-4">
         <div class="form-outline mb-4">
-          <form method="post">
+          <form action="" method="post">
             {%csrf_token%}
-              {{form}}
-            <input type="submit">
-          </form>
+            {{comment_form.as_p}}
+    <button type="submit">Add</button>
+
+      </form>
         </div>
       </div>
     </div>
@@ -23,3 +24,4 @@
 
 </body>
 </html>
+

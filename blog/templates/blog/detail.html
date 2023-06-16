@@ -14,23 +14,17 @@
         <h1>{% block title %} {{ post_detail.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post_detail.author }} | {{ post_detail.created_on }}</p>
         <p class="card-text ">{{ post_detail.content | safe }}</p>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body">
-
-        {% include 'blog/comments.html'%}
+        <a href="{% url 'comment' post_detail.id %}"><input type="submit" value="Add Comment"></a>
       </div>
-
-
     </div>
   </div>
 
@@ -39,17 +33,15 @@
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body">
-        {{post_comments}}
-
+        {% for c in post_detail.comments.all  %}
+          <ul>
+            <li>{{ c.comment_text }}</li>
+          </ul>
+        {% endfor %}
       </div>
-
-
     </div>
   </div>
-
 </div>
-
-
 </body>
 </html>
 {% endblock %}

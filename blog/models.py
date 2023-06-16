@@ -21,8 +21,8 @@ class Post(models.Model):
 
 
 class Comments(models.Model):
-    comment_text = models.CharField(max_length=10000)
-
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name='comments')
+    comment_text = models.TextField()
 
     def __str__(self):
         return self.comment_text
